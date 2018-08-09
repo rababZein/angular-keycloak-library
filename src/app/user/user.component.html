@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card">
+        <div class="sim-jumbotrom center-align">
+          <h2>Create A new Users</h2>
+          <form  (ngSubmit)="onSubmit(); UserRegistrationForm.reset()"  class="col s12 white" #UserRegistrationForm="ngForm">
+            <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="firstName" #FirstName="ngModel" [(ngModel)]="model.firstName" required>
+                  <label data-error="Required Field!" >First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="lastName" #LastName="ngModel" [(ngModel)]="model.lastName" required>
+                  <label data-error="Required Field!" >Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="username" #UserName="ngModel" [(ngModel)]="model.username" required>
+                  <label data-error="Required Field!" >User Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="email" #email="ngModel" [(ngModel)]="model.email" [pattern]="emailPattern" >
+                  <label data-error="Invalid mail" >E-Mail</label>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s6">
+                    <input id="password" class="validate" type="text" name="password" #Password="ngModel" [(ngModel)]="model.password" required minlength="6">
+                    <label for="password" [attr.data-error]= "Password.errors != null? (Password.errors.required? 'Required Field':'Minimum 3 Characters Needed'):'' ">Password</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="passwordConfirm" type="text" name="confirmPassword" #ConfirmPassword="ngModel" [(ngModel)]="model.confirmPassword"  minlength="6">
+                    <label data-error="Must be Matched!" for="passwordConfirm">Confirm Password</label>
+                  </div>
+                </div>
+              <div class="row">
+               <input type="submit" value="create" class="btn btn-success">
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
